@@ -1,0 +1,57 @@
+<script setup>
+const { call } = useApi();
+const { user } = useAuth();
+
+const totalData = ref(null);
+
+const fetchReport = async (range) => {
+  const res = await call({
+    url: "/api/financial-report",
+    method: "POST",
+    data: {
+      range,
+      userId: user?.value?.id,
+    },
+    // credentials: true,
+  });
+
+  totalData.value = res;
+};
+
+watch(
+  () => user.value,
+  async (newUser) => {
+    if (newUser && newUser.id) {
+      await fetchReport("week");
+    }
+  },
+  { immediate: true }, // Run immediately in case user is already there
+);
+
+const handleFilter = async (range) => {
+  await fetchReport(range);
+};
+
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "ETB", // Change to 'ETB', 'EUR', etc.
+});
+</script>
+
+<template>
+  <div class="p-2 space-y-6">
+    <div class="flex justify-between items-center">
+      <div class="bg-green-100 text-green-900 p-3 rounded-xl">
+        {{ user?.username }}
+      </div>
+      <div class="bg-orange-200 text-orange-900 p-3 rounded-xl">
+        {{ formatter.format(user?.rBalance || 0) }}
+      </div>
+    </div>
+    <GgrReport
+      v-if="totalData"
+      :report="totalData.report"
+      @changeFilter="handleFilter"
+    />
+  </div>
+</template>
