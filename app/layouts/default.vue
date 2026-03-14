@@ -25,7 +25,7 @@ const menus = [
     icon: "🎟",
     roles: ["admin"],
   },
-  { name: "Bonuses", path: "/bonuses", icon: "🎁", roles: ["admin"] },
+  { name: "Account", path: "/account", icon: "🎁", roles: ["admin"] },
 ];
 
 const filteredMenus = computed(() => {
