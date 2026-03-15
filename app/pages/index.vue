@@ -36,7 +36,8 @@ const handleFilter = async (range) => {
 
 const handleRange = async (r) => {
   range.value = r;
-  await fetchReport();
+  console.log(r, "rrrr");
+  await fetchReport(r);
 };
 
 const formatter = new Intl.NumberFormat("en-US", {
