@@ -30,6 +30,11 @@ const groupings = computed(() => {
           color: "text-red-700 bg-red-50 border-red-100",
         },
         {
+          label: "Bonus Wins",
+          value: g?.global_bonus_wins ?? 0,
+          color: "text-indigo-700 bg-indigo-50 border-indigo-100",
+        },
+        {
           label: "Refunds",
           value: g?.global_refunds ?? 0,
           color: "text-gray-600 bg-gray-50 border-gray-100",
@@ -83,11 +88,6 @@ const groupings = computed(() => {
           label: "Bonus Bets",
           value: g?.global_bonus_bets ?? 0,
           color: "text-purple-700 bg-purple-50 border-purple-100",
-        },
-        {
-          label: "Bonus Wins",
-          value: g?.global_bonus_wins ?? 0,
-          color: "text-indigo-700 bg-indigo-50 border-indigo-100",
         },
       ],
     },
