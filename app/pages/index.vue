@@ -4,6 +4,8 @@ const { user } = useAuth();
 
 const totalData = ref(null);
 
+const range = ref("2week");
+
 const fetchReport = async (range) => {
   const res = await call({
     url: "/api/financial-report",
@@ -32,6 +34,11 @@ const handleFilter = async (range) => {
   await fetchReport(range);
 };
 
+const handleRange = async (r) => {
+  range.value = r;
+  await fetchReport();
+};
+
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "ETB", // Change to 'ETB', 'EUR', etc.
@@ -49,9 +56,16 @@ const formatter = new Intl.NumberFormat("en-US", {
       </div>
     </div>
     <GgrReport
-      v-if="totalData"
+      v-if="totalData && user?.role === 'admin'"
       :report="totalData.report"
       @changeFilter="handleFilter"
+    />
+
+    <FinancialReport
+      v-if="totalData && user?.role === 'agent'"
+      :report="totalData.report"
+      :range="range"
+      @changeRange="handleRange"
     />
   </div>
 </template>
