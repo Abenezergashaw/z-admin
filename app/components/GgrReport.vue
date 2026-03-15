@@ -89,6 +89,11 @@ const groupings = computed(() => {
           value: g?.global_bonus_bets ?? 0,
           color: "text-purple-700 bg-purple-50 border-purple-100",
         },
+        {
+          label: "Wins with Bonus",
+          value: g?.global_wins_with_bonus ?? 0,
+          color: "text-indigo-700 bg-indigo-50 border-indigo-100",
+        },
       ],
     },
   ];
