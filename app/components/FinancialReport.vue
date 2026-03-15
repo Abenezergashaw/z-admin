@@ -83,6 +83,28 @@ const changeRange = (e) => {
       </div>
 
       <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Net Bonus Wins</p>
+        <p class="font-semibold">{{ report.total.total_team_bonus_wins }}</p>
+      </div>
+
+      <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Net Refunds (Void Bets)</p>
+        <p class="font-semibold">{{ report.total.total_team_refunds }}</p>
+      </div>
+
+      <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Net Win WIth Bonus (Gift)</p>
+        <p class="font-semibold">
+          {{ report.total.total_team_wins_with_bonus }}
+        </p>
+      </div>
+
+      <div class="bg-gray-200 p-3 rounded">
+        <p class="text-xs text-gray-600">Net Cashbacks</p>
+        <p class="font-semibold">{{ report.total.total_team_cashbacks }}</p>
+      </div>
+
+      <div class="bg-gray-200 p-3 rounded">
         <p class="text-xs text-gray-600">Net GGR</p>
         <p class="font-semibold">{{ report.total.net_ggr }}</p>
       </div>

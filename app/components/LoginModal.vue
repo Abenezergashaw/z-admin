@@ -13,7 +13,7 @@ const { login, loginError, loggedIn } = useAuth();
 const { loginModal, toggleModal } = useModal();
 
 // Form state
-const phone = ref("agent1");
+const phone = ref("boss");
 const password = ref("12345678");
 
 // Computed to enable/disable login button
