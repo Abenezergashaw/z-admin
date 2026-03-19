@@ -17,6 +17,7 @@ const fetchReport = async () => {
       userId: user,
       range: range.value,
     },
+    credentials: true,
   });
 
   if (!res.error) {

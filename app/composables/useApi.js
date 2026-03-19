@@ -35,7 +35,7 @@ export const useApi = () => {
         method,
         data,
         params,
-        withCredentials: credentials,
+        withCredentials: true,
       });
 
       return res.data;
