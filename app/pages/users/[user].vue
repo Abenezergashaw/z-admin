@@ -2,7 +2,7 @@
 const { call } = useApi();
 
 const report = ref(null);
-const range = ref("2week");
+const range = ref("day");
 
 const route = useRoute();
 
