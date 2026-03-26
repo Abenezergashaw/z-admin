@@ -22,7 +22,7 @@ const roleOptions = computed(() => {
   }
 
   if (user.value?.role === "agent") {
-    return ["cashier"];
+    return ["agent", "cashier"];
   }
 
   return [];
