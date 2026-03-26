@@ -4,7 +4,7 @@ const { user } = useAuth();
 
 const totalData = ref(null);
 
-const range = ref("2week");
+const range = ref("day");
 
 const fetchReport = async (range) => {
   const res = await call({
@@ -24,7 +24,7 @@ watch(
   () => user.value,
   async (newUser) => {
     if (newUser && newUser.id) {
-      await fetchReport("week");
+      await fetchReport("day");
     }
   },
   { immediate: true }, // Run immediately in case user is already there
