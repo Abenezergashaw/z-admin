@@ -4,8 +4,18 @@ const open = ref(false);
 const { checkSession, logout, user, loggedIn } = useAuth();
 
 const menus = [
-  { name: "Dashboard", path: "/", icon: "📊", roles: ["admin", "agent"] },
-  { name: "Users", path: "/users", icon: "👤", roles: ["admin", "agent"] },
+  {
+    name: "Dashboard",
+    path: "/",
+    icon: "📊",
+    roles: ["admin", "agent"],
+  },
+  {
+    name: "Users",
+    path: "/users",
+    icon: "👤",
+    roles: ["admin", "agent"],
+  },
   {
     name: "Withdraw Orders",
     path: "/withdraw-orders",
@@ -18,14 +28,24 @@ const menus = [
     icon: "🎲",
     roles: ["admin", "agent"],
   },
-  { name: "Online Users", path: "/online-users", icon: "💰", roles: ["admin"] },
+  {
+    name: "Online Users",
+    path: "/online-users",
+    icon: "💰",
+    roles: ["admin"],
+  },
   {
     name: "Unsettled bets",
     path: "/bets/unsettled-bets",
     icon: "🎟",
+    roles: ["general"],
+  },
+  {
+    name: "Account",
+    path: "/account",
+    icon: "🎁",
     roles: ["admin"],
   },
-  { name: "Account", path: "/account", icon: "🎁", roles: ["admin"] },
 ];
 
 const filteredMenus = computed(() => {
@@ -58,9 +78,7 @@ onMounted(async () => {
         'md:translate-x-0 md:static',
       ]"
     >
-      <div class="p-4 text-lg font-bold border-b border-purple-700">
-        Zemen Bet
-      </div>
+      <div class="p-3 text-lg font-bold border-b">Zemen Bet</div>
 
       <nav class="p-2 space-y-1">
         <NuxtLink

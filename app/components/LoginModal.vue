@@ -13,8 +13,8 @@ const { login, loginError, loggedIn } = useAuth();
 const { loginModal, toggleModal } = useModal();
 
 // Form state
-const phone = ref("boss");
-const password = ref("12345678");
+const phone = ref("");
+const password = ref("");
 
 // Computed to enable/disable login button
 const isFormValid = computed(() => {
@@ -43,14 +43,6 @@ const submitForm = () => {
       <div
         class="relative w-[90%] md:max-w-md rounded-md bg-[#49215D] text-white p-4 font-sans"
       >
-        <!-- Close -->
-        <button
-          class="absolute right-3 top-3 text-lg font-bold text-white cursor-pointer"
-          @click="toggleModal('login')"
-        >
-          ✕
-        </button>
-
         <!-- Logo -->
         <div
           class="mb-4 text-center flex flex-col justify-center items-center gap-4 max-w-80"
